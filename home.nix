@@ -204,6 +204,19 @@
                 telescope = {
                     enable = true;
                 };
+                treesitter = {
+                    enable = true;
+                    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+                        bash
+                        json
+                        make
+                        nix
+                        lua
+                        c
+                        python
+                    ];
+                    settings.highlight.enable = true;
+                };
             };
             lsp = {
                 inlayHints.enable = true;
