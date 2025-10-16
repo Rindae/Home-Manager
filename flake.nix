@@ -15,24 +15,24 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, nixvim, ... }:
-    let
+  { nixpkgs, home-manager, nixvim, ... }:
+  let
       system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
+  pkgs = nixpkgs.legacyPackages.${system};
+  in
+  {
       homeConfigurations."adriendumazaud" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+          inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
+# Specify your home configuration modules here, for example,
+# the path to your home.nix.
+          modules = [ ./home.nix ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-	extraSpecialArgs = {
-		nixvim = nixvim;
-	};
+# Optionally use extraSpecialArgs
+# to pass through arguments to home.nix
+          extraSpecialArgs = {
+              nixvim = nixvim;
+          };
       };
-    };
+  };
 }

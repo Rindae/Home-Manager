@@ -1,6 +1,5 @@
 { config, pkgs, nixvim, lib, ... }:
 
-
 {
     imports = [
         nixvim.homeModules.nixvim
@@ -67,6 +66,7 @@
 # EDITOR = "emacs";
     };
     programs = {
+    ripgrep.enable = true;
         wezterm = {
             enable = true;
             enableZshIntegration = true;
@@ -180,12 +180,13 @@
                         ];
                         "<Tab>" = [
                             "select_and_accept"
+                            "fallback"
                         ];
                         "<S-j>" = [
                             "select_next"
                                 "fallback"
                         ];
-                        "<S-Tab>" = [
+                        "<S-i>" = [
                             "snippet_backward"
                                 "fallback"
                         ];
@@ -198,7 +199,10 @@
                                 "fallback"
                         ];
                     };
-
+                };
+                web-devicons.enable = true;
+                telescope = {
+                    enable = true;
                 };
             };
             lsp = {
@@ -210,6 +214,24 @@
                 /* NIX */
                 servers.nixd.enable = true;
             };
+            globals.mapleader = " ";
+
+            /*Telescope keymaps */
+
+            keymaps = [
+            {
+                action = ":Telescope find_files<CR>";
+                key = "<leader><leader>";
+            }
+            {
+                action = ":Telescope live_grep<CR>";
+                key = "<leader>g";
+            }
+            {
+                action = ":make";
+                key = "<leader>m";
+            }
+            ];
         };
     };
 # Let Home Manager install and manage itself.
