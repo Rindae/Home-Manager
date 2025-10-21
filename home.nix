@@ -119,6 +119,7 @@
                         lib.mkMerge [ before after ];
             shellAliases = {
                 "cat" = "bat";
+                "n" = "nvim";
             };
         };
         zoxide = {
