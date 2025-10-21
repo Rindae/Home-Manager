@@ -132,7 +132,7 @@
             icons = "always";
         };
         bat = {
-            enable = true;
+            enable = false;
         };
         nixvim = {
             enable = true;
@@ -214,6 +214,7 @@
                         lua
                         c
                         python
+                        markdown
                     ];
                     settings.highlight.enable = true;
                 };
